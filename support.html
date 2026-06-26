@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next — Support</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 48px 20px 80px;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1c1b1f; background: #faf9fc; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .mark { width: 34px; height: 34px; border-radius: 9px;
+    background: linear-gradient(135deg, #5b6cff, #8b5cf6); display: grid; place-items: center;
+    color: #fff; font-weight: 800; font-size: 18px; }
+  h1 { font-size: 30px; margin: 24px 0 2px; letter-spacing: -0.02em; }
+  .lead { color: #6b6a72; font-size: 15px; margin: 0 0 28px; }
+  h2 { font-size: 17px; margin: 28px 0 6px; letter-spacing: -0.01em; }
+  p { margin: 6px 0; }
+  a { color: #5b6cff; }
+  .contact { margin: 22px 0; padding: 16px 18px; border-radius: 14px;
+    background: rgba(91,108,255,.10); border: 1px solid rgba(91,108,255,.20); }
+  .contact strong { font-size: 16px; }
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid #e7e6ec; color: #6b6a72; font-size: 14px; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e6e1e9; background: #131218; }
+    .lead, footer { color: #9a98a3; }
+    footer { border-top-color: #2a2930; }
+    .contact { background: rgba(139,124,255,.14); border-color: rgba(139,124,255,.28); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="mark">N</div><strong>Next</strong></div>
+  <h1>Support</h1>
+  <p class="lead">Next is a local-first calendar &amp; to-do app for macOS. Here's how to get help and get the most out of it.</p>
+
+  <div class="contact">
+    <strong>Need help?</strong><br>
+    Email <a href="mailto:zviscodev@gmail.com">zviscodev@gmail.com</a> — we usually reply within a couple of days.
+  </div>
+
+  <h2>Getting started</h2>
+  <p>On first launch, Next asks for access to your Calendar and Reminders. Choose <strong>Allow</strong> for both — Next reads and writes your existing events and to-dos directly through macOS, so everything you already have (iCloud, Google, Outlook) shows up right away. There's no account to create and no separate login.</p>
+
+  <h2>Granting or restoring permissions</h2>
+  <p>If the calendar looks empty or you declined access, open <strong>System Settings → Privacy &amp; Security → Calendars</strong> (and <strong>Reminders</strong>) and enable Next, then relaunch the app.</p>
+
+  <h2>Quick add</h2>
+  <p>Use the bar at the top of the window and type naturally — for example, <em>"Lunch with Sam tomorrow 1pm"</em> or <em>"Pay rent on the 1st every month #Finance"</em>. Next parses the date, time, repeat, and list as you type, with a live preview before you add.</p>
+
+  <h2>Common questions</h2>
+  <p><strong>Where is my data stored?</strong> On your Mac, in the built-in Calendar and Reminders. Next has no servers and collects nothing — see our <a href="./">Privacy Policy</a>.</p>
+  <p><strong>Does it work offline?</strong> Yes. The only network request is Apple Maps location lookup when you type a place into an event.</p>
+  <p><strong>How do I change a calendar or list color?</strong> Open Settings (⌘,) and pick a color per calendar/list.</p>
+
+  <footer>© 2026 Zachary Visco · Next for macOS · <a href="./">Privacy Policy</a></footer>
+</div>
+</body>
+</html>
