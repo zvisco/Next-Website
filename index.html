@@ -126,6 +126,11 @@
   .band { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .band .frame { max-width: 900px; margin: 40px auto 0; }
 
+  /* iPhone showcase */
+  .phones { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-top: 46px; }
+  .phones img { width: 216px; height: auto; border-radius: 34px; display: block;
+    border: 1px solid var(--border); box-shadow: var(--shadow); background: var(--surface); }
+
   /* Privacy callout */
   .privacy-cta { text-align: center; }
   .privacy-cta .seal { width: 56px; height: 56px; border-radius: 16px; background: var(--tint);
@@ -307,6 +312,15 @@
         <p>Next for iPhone is the same calm calendar in your pocket — swipe between views, pull to
           refresh, and add plans in the same plain English. It works with the same Calendar and
           Reminders, so your Mac and iPhone stay in step through iCloud with no extra setup.</p>
+      </div>
+      <div class="phones">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/shots-ios/agenda-dark.png">
+          <img src="assets/shots-ios/agenda-light.png" width="430" height="932" alt="Next for iPhone — agenda of events and tasks">
+        </picture>
+        <img src="assets/shots-ios/threeday-light.png" width="430" height="932" loading="lazy" alt="Next for iPhone — 3-day time grid">
+        <img src="assets/shots-ios/add-light.png" width="430" height="932" loading="lazy" alt="Next for iPhone — natural-language quick add">
+        <img src="assets/shots-ios/tasks-light.png" width="430" height="932" loading="lazy" alt="Next for iPhone — tasks grouped by date">
       </div>
     </div>
   </section>
