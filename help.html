@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next — Help &amp; FAQ</title>
+<meta name="description" content="Answers to common questions about Next for Mac and iPhone — adding events, choosing calendars, notifications and reminders, sync, and privacy.">
+<link rel="icon" href="assets/icon.png">
+<style>
+  /* Quiet Hours — matches index.html */
+  :root { color-scheme: light dark;
+    --paper: #f4f3f7; --card: #fdfdfe; --ink: #23222a; --ink-2: #5c5966; --ink-3: #8a8794;
+    --line: #e3e1ea; --line-2: #d8d5e0; --acc-ink: #3f49b8; }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #16151c; --card: #1d1c24; --ink: #eceaf1; --ink-2: #a8a5b3; --ink-3: #7c7987;
+      --line: #2a2833; --line-2: #363341; --acc-ink: #aab4ff; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 44px 22px 80px;
+    font: 16px/1.68 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 660px; margin: 0 auto; }
+  .brand { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-size: 22px;
+    font-weight: 600; color: inherit; text-decoration: none; border-bottom: none; }
+  .brand i { font-style: normal; color: #5b6cff; }
+  h1 { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
+    font-size: 34px; margin: 30px 0 4px; letter-spacing: -0.015em; }
+  .lead { color: var(--ink-2); font-size: 15.5px; margin: 0 0 30px; }
+  h2 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: 600;
+    font-size: 15px; margin: 34px 0 4px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-3); font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11.5px; }
+  a { color: var(--acc-ink); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+  a:hover { border-color: var(--acc-ink); }
+  details { border-bottom: 1px solid var(--line); }
+  summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px;
+    padding: 15px 2px; font-size: 15.5px; font-weight: 600; color: var(--ink);
+    font-family: "Iowan Old Style", Palatino, Georgia, serif; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ""; margin-left: auto; width: 8px; height: 8px; flex: 0 0 auto;
+    border-right: 1.5px solid var(--ink-3); border-bottom: 1.5px solid var(--ink-3);
+    transform: rotate(45deg); transition: transform .15s; }
+  details[open] summary::after { transform: rotate(225deg); }
+  details p { margin: 0 0 8px; padding: 0 2px; color: var(--ink-2); font-size: 15px; }
+  details > p:last-child { padding-bottom: 16px; }
+  details b, details strong { color: var(--ink); font-weight: 600; }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-3); font-size: 13.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="./">Next<i>.</i></a>
+  <h1>Help &amp; FAQ</h1>
+  <p class="lead">Quick answers for Next on Mac and iPhone. Can't find yours? Email
+    <a href="mailto:zviscodev@gmail.com">zviscodev@gmail.com</a> or see the
+    <a href="support.html">support page</a>.</p>
+
+  <h2>Getting started</h2>
+  <details open>
+    <summary>How do I add an event or task quickly?</summary>
+    <p>Type naturally — <em>"Lunch with Sam 1pm Friday"</em> or <em>"Pay rent on the 1st every month
+    #Finance"</em>. Dates, times, durations, repeats, and lists are understood as you write, with a live
+    preview before you add. On Mac, use the bar at the top of the window; on iPhone, tap <b>+</b>.
+    A <b>#tag</b> picks the calendar or list by name.</p>
+  </details>
+  <details>
+    <summary>Why don't I see some of my calendars or tasks?</summary>
+    <p>Two things to check. First, Next needs Calendar and Reminders permission — grant it under
+    <b>System Settings → Privacy &amp; Security</b> on Mac, or <b>Settings → Privacy &amp; Security</b>
+    on iPhone. Second, each calendar and reminder list can be shown or hidden inside Next under
+    <b>Settings → Calendars</b>.</p>
+  </details>
+  <details>
+    <summary>Can I replay the welcome tour?</summary>
+    <p>Yes — open <b>Settings → Help → Replay the welcome tour</b>. It walks through choosing your
+    calendars and lists, plus the notification and appearance settings.</p>
+  </details>
+
+  <h2>Notifications and reminders</h2>
+  <details>
+    <summary>How do notifications work?</summary>
+    <p>Turn them on under <b>Settings → Notifications</b> (you can limit them to events, tasks, or both).
+    Timed items alert at their start or due time; all-day items alert at <b>9 AM</b> on their day.
+    Notifications fire even when Next is closed.</p>
+  </details>
+  <details>
+    <summary>Can an event remind me ahead of time?</summary>
+    <p>Yes — open the event and add up to <b>two reminders</b> (say, 15 minutes and 1 day before).
+    These are delivered by Next on the device where you set them.</p>
+  </details>
+
+  <h2>Sync</h2>
+  <details>
+    <summary>Do my Mac and iPhone stay in sync?</summary>
+    <p>Yes. Next reads and writes the same Calendar and Reminders accounts on both (iCloud, Google,
+    Outlook — whatever you've set up), so they stay in step through those accounts with no extra setup.</p>
+    <p>A change made on one device can take a few minutes to appear on another — that timing belongs to
+    the account's own sync schedule. For Google calendars on iPhone, check <b>Settings → Apps →
+    Calendar → Fetch New Data</b>: "Fetch every 15 minutes" keeps things moving; "Manual" waits until
+    you open the Calendar app.</p>
+  </details>
+
+  <h2>Privacy</h2>
+  <details>
+    <summary>Where is my data stored?</summary>
+    <p>Entirely on your device, in the system Calendar and Reminders. Next has no servers and no account
+    system — the only network request it makes is Apple Maps address lookup when you type a location.
+    Read the full <a href="privacy.html">privacy policy</a>.</p>
+  </details>
+
+  <h2>Customizing</h2>
+  <details>
+    <summary>How do I change a calendar or list color?</summary>
+    <p>Under <b>Settings → Calendars</b>, tap the color swatches on any calendar or list row. The
+    override applies everywhere in Next; the source calendar keeps its own color in other apps.</p>
+  </details>
+  <details>
+    <summary>Can I change the theme or default view?</summary>
+    <p><b>Settings → General</b> has Light / Dark / System themes, accent colors, the week's start day,
+    and which view opens by default (Agenda, Week/3-Day, Month, or Tasks).</p>
+  </details>
+
+  <footer>© 2026 Zachary Visco · Next for Mac &amp; iPhone ·
+    <a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a></footer>
+</div>
+</body>
+</html>
