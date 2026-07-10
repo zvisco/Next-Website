@@ -16,6 +16,9 @@
       --line: #2a2833; --line-2: #363341; --acc-ink: #aab4ff; }
   }
   * { box-sizing: border-box; }
+  /* Opening an accordion can push the page past the viewport; without a reserved gutter the scrollbar
+     pops in and shifts the centered column left. Keep the gutter stable so nothing moves. */
+  html { scrollbar-gutter: stable; overflow-y: scroll; }
   body { margin: 0; padding: 44px 22px 80px;
     font: 16px/1.68 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
