@@ -5,38 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Next — Support</title>
 <style>
-  :root { color-scheme: light dark; }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; padding: 48px 20px 80px;
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #1c1b1f; background: #faf9fc; -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 680px; margin: 0 auto; }
-  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
-  .mark { width: 34px; height: 34px; border-radius: 9px;
-    background: linear-gradient(135deg, #5b6cff, #8b5cf6); display: grid; place-items: center;
-    color: #fff; font-weight: 800; font-size: 18px; }
-  h1 { font-size: 30px; margin: 24px 0 2px; letter-spacing: -0.02em; }
-  .lead { color: #6b6a72; font-size: 15px; margin: 0 0 28px; }
-  h2 { font-size: 17px; margin: 28px 0 6px; letter-spacing: -0.01em; }
-  p { margin: 6px 0; }
-  a { color: #5b6cff; }
-  .contact { margin: 22px 0; padding: 16px 18px; border-radius: 14px;
-    background: rgba(91,108,255,.10); border: 1px solid rgba(91,108,255,.20); }
-  .contact strong { font-size: 16px; }
-  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid #e7e6ec; color: #6b6a72; font-size: 14px; }
+  /* Quiet Hours — matches index.html */
+  :root { color-scheme: light dark;
+    --paper: #f4f3f7; --card: #fdfdfe; --ink: #23222a; --ink-2: #5c5966; --ink-3: #8a8794;
+    --line: #e3e1ea; --line-2: #d8d5e0; --acc-ink: #3f49b8;
+    --shadow: 0 14px 40px rgba(35,30,70,.08); }
   @media (prefers-color-scheme: dark) {
-    body { color: #e6e1e9; background: #131218; }
-    .lead, footer { color: #9a98a3; }
-    footer { border-top-color: #2a2930; }
-    .contact { background: rgba(139,124,255,.14); border-color: rgba(139,124,255,.28); }
+    :root { --paper: #16151c; --card: #1d1c24; --ink: #eceaf1; --ink-2: #a8a5b3; --ink-3: #7c7987;
+      --line: #2a2833; --line-2: #363341; --acc-ink: #aab4ff;
+      --shadow: 0 14px 40px rgba(0,0,0,.4); }
   }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 44px 22px 80px;
+    font: 16px/1.68 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 660px; margin: 0 auto; }
+  .brand { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-size: 22px;
+    font-weight: 600; color: inherit; text-decoration: none; }
+  .brand i { font-style: normal; color: #5b6cff; }
+  h1 { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
+    font-size: 34px; margin: 30px 0 4px; letter-spacing: -0.015em; }
+  .lead { color: var(--ink-2); font-size: 15.5px; margin: 0 0 28px; }
+  h2 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: 600;
+    font-size: 19px; margin: 30px 0 6px; letter-spacing: -0.01em; }
+  p { margin: 6px 0; color: var(--ink-2); }
+  p strong, .contact strong { color: var(--ink); }
+  a { color: var(--acc-ink); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+  a:hover { border-color: var(--acc-ink); }
+  .contact { margin: 24px 0; padding: 18px 20px; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .contact strong { font-size: 16px; }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-3); font-size: 13.5px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="brand"><div class="mark">N</div><strong>Next</strong></div>
+  <a class="brand" href="./">Next<i>.</i></a>
   <h1>Support</h1>
   <p class="lead">Next is a local-first calendar &amp; to-do app for Mac and iPhone. Here's how to get help and get the most out of it.</p>
 

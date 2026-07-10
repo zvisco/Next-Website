@@ -15,372 +15,290 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
+  /* ── Quiet Hours × Type It ──
+     Paper-calm editorial serif everywhere; the typing quick-add is the page's one loud moment. */
   :root {
     color-scheme: light dark;
-    --bg: #faf9fc; --bg-2: #ffffff; --surface: #ffffff;
-    --text: #1c1b1f; --muted: #65636d; --border: #e7e6ec;
-    --accent: #5b6cff; --accent-2: #8b5cf6; --accent-ink: #4b54d8;
-    --tint: rgba(91,108,255,.10);
-    --shadow: 0 18px 50px rgba(40,38,70,.14);
-    --shadow-sm: 0 6px 20px rgba(40,38,70,.10);
-    --grad: linear-gradient(135deg, #5b6cff, #8b5cf6);
+    --paper: #f4f3f7; --card: #fdfdfe; --ink: #23222a; --ink-2: #5c5966; --ink-3: #8a8794;
+    --line: #e3e1ea; --line-2: #d8d5e0;
+    --acc: #5b6cff; --acc-soft: #e8ebff; --acc-ink: #3f49b8;
+    --clay: #c96f5a; --green-soft: #e5f4ec; --green-ink: #22754e;
+    --amber-soft: #f6ebe2; --amber-ink: #a05a2c;
+    --shadow: 0 24px 60px rgba(35,30,70,.12);
   }
   @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0f0e14; --bg-2: #16151d; --surface: #1a1922;
-      --text: #e9e5ef; --muted: #a09eaa; --border: #2a2930;
-      --accent: #8b9bff; --accent-2: #b09bff; --accent-ink: #b9c2ff;
-      --tint: rgba(139,124,255,.14);
-      --shadow: 0 18px 50px rgba(0,0,0,.55);
-      --shadow-sm: 0 6px 20px rgba(0,0,0,.45);
-    }
+    :root { --paper: #16151c; --card: #1d1c24; --ink: #eceaf1; --ink-2: #a8a5b3; --ink-3: #7c7987;
+      --line: #2a2833; --line-2: #363341;
+      --acc: #8b9bff; --acc-soft: #262a4d; --acc-ink: #aab4ff;
+      --clay: #d98a76; --green-soft: #1d3a2c; --green-ink: #7fd3a8;
+      --amber-soft: #3d2c1e; --amber-ink: #dfa571;
+      --shadow: 0 24px 60px rgba(0,0,0,.5); }
   }
+
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text); background: var(--bg);
-    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-  }
-  a { color: var(--accent-ink); text-decoration: none; }
-  a:hover { text-decoration: underline; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+    font: 16.5px/1.66 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 26px; }
+  a { color: inherit; text-decoration: none; }
   img { max-width: 100%; height: auto; display: block; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
 
-  /* ── Nav ─────────────────────────────────────────── */
-  header.nav { position: sticky; top: 0; z-index: 20;
-    backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
-    background: color-mix(in srgb, var(--bg) 78%, transparent);
-    border-bottom: 1px solid var(--border); }
-  .nav-in { display: flex; align-items: center; justify-content: space-between; height: 62px; }
-  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 22px; color: var(--text); }
-  .brand:hover { text-decoration: none; }
-  /* The app icon itself (rounded corners baked into the PNG) — matches the Mac app's Dock icon. */
-  .mark-img { width: 40px; height: 40px; border-radius: 9px; display: block; flex: 0 0 auto; }
-  .mark-lg { width: 76px; height: 76px; border-radius: 17px; margin: 0 auto 22px; }
-  .nav-links { display: flex; align-items: center; gap: 8px; }
-  .nav-links a.txt { color: var(--muted); font-weight: 600; font-size: 14.5px; padding: 8px 12px; border-radius: 9px; }
-  .nav-links a.txt:hover { color: var(--text); background: var(--tint); text-decoration: none; }
+  /* small-caps mono labels — the page's structural voice */
+  .lbl { font: 600 11.5px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .17em;
+    text-transform: uppercase; color: var(--ink-3); }
 
-  .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer;
-    border-radius: 999px; padding: 10px 18px; font-size: 14.5px; border: 1px solid transparent; }
-  .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 6px 18px rgba(91,108,255,.4); }
-  .btn-primary:hover { text-decoration: none; filter: brightness(1.05); transform: translateY(-1px); }
-  .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border); }
-  .btn-ghost:hover { text-decoration: none; border-color: var(--accent); color: var(--accent-ink); }
+  /* ── nav ── */
+  nav.top { border-bottom: 1px solid var(--line); }
+  .top-in { display: flex; align-items: baseline; justify-content: space-between; padding-top: 22px; padding-bottom: 22px; }
+  .wordmark { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-size: 24px; font-weight: 600;
+    letter-spacing: -.01em; margin-right: 18px; }
+  .wordmark i { font-style: normal; color: var(--acc); }
+  .top-links { display: flex; gap: 26px; align-items: baseline; font-size: 14px; color: var(--ink-2); }
+  .top-links a:hover { color: var(--ink); }
+  .top-links .dl { color: var(--ink); border-bottom: 1.5px solid var(--ink); padding-bottom: 1px; }
 
-  /* App Store badge button */
-  .as-badge { display: inline-flex; align-items: center; gap: 11px; background: #000; color: #fff;
-    border-radius: 13px; padding: 11px 18px; min-width: 210px; }
-  @media (prefers-color-scheme: dark) { .as-badge { background: #fff; color: #000; } }
-  .as-badge:hover { text-decoration: none; transform: translateY(-1px); }
-  .as-badge svg { width: 26px; height: 26px; flex: 0 0 auto; }
-  .as-badge .l1 { display: block; font-size: 11px; line-height: 1.2; opacity: .9; }
-  .as-badge .l2 { display: block; font-size: 18px; line-height: 1.2; font-weight: 600; letter-spacing: -.01em; }
+  /* ── hero ── */
+  .hero { padding-top: 92px; text-align: center; }
+  .hero h1 { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
+    font-size: clamp(38px, 6vw, 64px); line-height: 1.06; letter-spacing: -.015em; margin: 22px auto 0;
+    max-width: 17ch; text-wrap: balance; }
+  .hero h1 em { font-style: italic; }
+  .hero .sub { color: var(--ink-2); max-width: 52ch; margin: 22px auto 0; font-size: 17.5px; }
+  .hero .cta { display: flex; gap: 22px; justify-content: center; align-items: center; margin: 32px 0 0;
+    flex-wrap: wrap; }
+  .btn-ink { display: inline-block; background: var(--ink); color: var(--paper); border-radius: 4px;
+    padding: 13px 24px; font-size: 15px; font-weight: 600; }
+  .btn-ink:hover { opacity: .92; }
+  .quiet-link { font-size: 15px; color: var(--ink); border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+  .quiet-link:hover { border-color: var(--ink); }
 
-  /* ── Hero ────────────────────────────────────────── */
-  .hero { text-align: center; padding: 76px 0 0; }
-  .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .02em;
-    color: var(--accent-ink); background: var(--tint); padding: 6px 14px; border-radius: 999px; }
-  h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.08; letter-spacing: -.03em;
-    margin: 22px auto 0; font-weight: 800; }
-  h1 .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .sub { font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); max-width: 56ch; margin: 20px auto 0; }
-  .cta { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; margin: 30px 0 14px; }
-  .trust { color: var(--muted); font-size: 13.5px; font-weight: 600; }
-  .trust b { color: var(--accent-ink); }
+  /* ── the one loud moment: the ledger ── */
+  .ledger { max-width: 660px; margin: 64px auto 0; background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; box-shadow: var(--shadow); text-align: left; overflow: hidden; }
+  .ledger-head { display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 20px; border-bottom: 1px solid var(--line); }
+  .ledger-line { padding: 20px 20px 6px; font: 500 18px/1.5 ui-monospace, "SF Mono", Menlo, monospace;
+    min-height: 56px; }
+  .caret { display: inline-block; width: 9px; height: 20px; background: var(--acc); vertical-align: -3px;
+    margin-left: 2px; }
+  @media (prefers-reduced-motion: no-preference) { .caret { animation: blink 1s steps(1) infinite; } }
+  @keyframes blink { 50% { opacity: 0; } }
+  .ledger-parse { display: flex; gap: 8px; flex-wrap: wrap; padding: 8px 20px 20px; }
+  .chip { font: 600 12.5px/1 ui-monospace, "SF Mono", Menlo, monospace; padding: 8px 12px; border-radius: 6px;
+    opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .35s ease; }
+  .chip.show { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .chip { opacity: 1; transform: none; } }
+  .chip.c-when { background: var(--acc-soft); color: var(--acc-ink); }
+  .chip.c-time { background: var(--green-soft); color: var(--green-ink); }
+  .chip.c-list { background: var(--amber-soft); color: var(--amber-ink); }
+  .ledger-foot { border-top: 1px dashed var(--line-2); padding: 12px 20px; color: var(--ink-3);
+    font-size: 13px; }
+  .ledger-foot b { color: var(--ink-2); font-weight: 600; }
 
-  .hero-shot { margin: 46px auto 0; max-width: 980px; }
-  .frame { border-radius: 16px; border: 1px solid var(--border); overflow: hidden;
-    box-shadow: var(--shadow); background: var(--surface); }
-  .hero-shot .frame { border-radius: 18px; }
+  /* ── chapters ── */
+  .chapter { padding-top: 96px; }
+  .ch-rule { display: flex; align-items: center; gap: 16px; margin-bottom: 34px; }
+  .ch-rule::before, .ch-rule::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+  .chapter h2 { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
+    font-size: clamp(27px, 3.8vw, 38px); letter-spacing: -.012em; text-align: center; margin: 0 0 14px;
+    text-wrap: balance; }
+  .chapter h2 em { font-style: italic; }
+  .chapter .lede { color: var(--ink-2); text-align: center; max-width: 56ch; margin: 0 auto; }
+  .shot { margin: 44px auto 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+    box-shadow: var(--shadow); background: var(--card); }
+  .shot img { width: 100%; }
 
-  /* ── Section scaffolding ─────────────────────────── */
-  section { padding: 72px 0; }
-  .sec-head { text-align: center; max-width: 60ch; margin: 0 auto 8px; }
-  h2 { font-size: clamp(26px, 4vw, 38px); letter-spacing: -.02em; margin: 0; font-weight: 800; }
-  .sec-head p { color: var(--muted); font-size: 18px; margin: 14px auto 0; }
+  /* quiet three-notes row (not cards) */
+  .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin: 52px 0 0; }
+  .note h3 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: 600; font-size: 18.5px;
+    margin: 10px 0 6px; }
+  .note p { margin: 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.6; }
+  .note .lbl { color: var(--acc-ink); }
 
-  /* Feature cards */
-  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 44px; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-    padding: 26px; box-shadow: var(--shadow-sm); }
-  .card .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--tint);
-    display: grid; place-items: center; color: var(--accent-ink); margin-bottom: 16px; }
-  .card .ic svg { width: 24px; height: 24px; }
-  .card h3 { margin: 0 0 6px; font-size: 18.5px; letter-spacing: -.01em; }
-  .card p { margin: 0; color: var(--muted); font-size: 15px; }
-  .card code { background: var(--tint); color: var(--accent-ink); padding: 1px 6px; border-radius: 6px;
-    font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  /* phones */
+  .phones { display: flex; gap: 26px; justify-content: center; margin-top: 46px; flex-wrap: wrap; }
+  .phones img { width: 250px; border: 1px solid var(--line); border-radius: 30px; box-shadow: var(--shadow); }
 
-  /* Alternating feature rows */
-  .rows { display: flex; flex-direction: column; gap: 30px; margin-top: 44px; }
-  .row { display: grid; grid-template-columns: 1.1fr 1fr; gap: 44px; align-items: center; }
-  .row:nth-child(even) .row-img { order: -1; }
-  .row-text h3 { font-size: clamp(22px, 3vw, 28px); letter-spacing: -.02em; margin: 0 0 12px; }
-  .row-text p { color: var(--muted); font-size: 16.5px; margin: 0; }
-  .row-img .frame { box-shadow: var(--shadow-sm); }
+  /* privacy statement — pure typography */
+  .privacy { text-align: center; padding-top: 110px; }
+  .privacy .big { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
+    font-size: clamp(24px, 3.6vw, 34px); line-height: 1.35; max-width: 30ch; margin: 26px auto 0;
+    text-wrap: balance; }
+  .privacy .big em { font-style: italic; border-bottom: 2px solid var(--clay); }
+  .privacy .tenets { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
+  .tenet { font: 600 12px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 999px;
+    padding: 9px 16px; }
+  .privacy .more { margin-top: 26px; font-size: 14.5px; }
+  .privacy .more a { color: var(--acc-ink); border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
 
-  /* Dark-mode band */
-  .band { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .band .frame { max-width: 900px; margin: 40px auto 0; }
+  /* closing CTA */
+  .fin { text-align: center; padding-top: 110px; padding-bottom: 96px; }
+  .fin h2 { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
+    font-size: clamp(30px, 4.4vw, 44px); margin: 18px 0 0; letter-spacing: -.012em; }
+  .fin .sub { color: var(--ink-2); margin: 16px auto 0; max-width: 46ch; }
+  .badges { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+  .badge { display: inline-flex; flex-direction: column; align-items: flex-start; border: 1.5px solid var(--ink);
+    border-radius: 10px; padding: 10px 20px; min-width: 200px; text-align: left; }
+  .badge:hover { background: var(--card); }
+  .badge .s { font-size: 11px; color: var(--ink-2); }
+  .badge .b { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 18px; font-weight: 600; }
 
-  /* iPhone showcase */
-  .phones { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-top: 46px; }
-  .phones img { width: 216px; height: auto; border-radius: 34px; display: block;
-    border: 1px solid var(--border); box-shadow: var(--shadow); background: var(--surface); }
+  footer { border-top: 1px solid var(--line); padding: 30px 0 56px; color: var(--ink-3); font-size: 13.5px; }
+  .foot-in { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  .foot-in nav { display: flex; gap: 20px; }
+  .foot-in a:hover { color: var(--ink); }
 
-  /* Privacy callout */
-  .privacy-cta { text-align: center; }
-  .privacy-cta .seal { width: 56px; height: 56px; border-radius: 16px; background: var(--tint);
-    display: grid; place-items: center; color: var(--accent-ink); margin: 0 auto 18px; }
-  .privacy-cta .seal svg { width: 30px; height: 30px; }
-
-  /* Final CTA */
-  .final { text-align: center; }
-
-  footer { border-top: 1px solid var(--border); padding: 34px 0 50px; color: var(--muted); font-size: 14px; }
-  .foot-in { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-  .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
-  .foot-links a { color: var(--muted); font-weight: 600; }
-  .foot-links a:hover { color: var(--text); }
-
-  @media (max-width: 760px) {
-    /* Keep Privacy + Support reachable from the top bar on phones; only drop the in-page Features
-       anchor and tighten spacing so the row still fits. */
-    .nav-links .nav-sm-hide { display: none; }
-    .nav-links { gap: 2px; }
-    .nav-links a.txt { padding: 8px 8px; font-size: 14px; }
-    .nav-links .btn-primary { padding: 9px 13px; }
-    .nav-in { gap: 6px; }
-    .brand { font-size: 18px; gap: 8px; }
-    .brand .mark-img { width: 32px; height: 32px; }
-    .cards { grid-template-columns: 1fr; }
-    .row { grid-template-columns: 1fr; gap: 22px; }
-    .row:nth-child(even) .row-img { order: 0; }
-    section { padding: 56px 0; }
+  @media (max-width: 720px) {
+    .notes { grid-template-columns: 1fr; gap: 26px; }
+    .hero { padding-top: 64px; }
+    .top-links { gap: 16px; }
+    .chapter { padding-top: 76px; }
+    .ledger-head .lbl { white-space: nowrap; letter-spacing: .1em; font-size: 10.5px; }
   }
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="#top"><img class="mark-img" src="assets/icon.png" alt="Next app icon"> Next</a>
-    <nav class="nav-links">
-      <a class="txt nav-sm-hide" href="#features">Features</a>
-      <a class="txt" href="privacy.html">Privacy</a>
-      <a class="txt" href="support.html">Support</a>
-      <a class="btn btn-primary" href="https://apps.apple.com/app/id6786812723">Download</a>
-    </nav>
+<nav class="top"><div class="wrap top-in">
+  <a class="wordmark" href="#">Next<i>.</i></a>
+  <div class="top-links">
+    <a href="#type">Features</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a>
+    <a class="dl" href="https://apps.apple.com/app/id6786812723">Download</a>
+  </div>
+</div></nav>
+
+<header class="hero wrap">
+  <span class="lbl">Calendar + tasks · Mac &amp; iPhone</span>
+  <h1>Your whole day, in <em>one calm place.</em></h1>
+  <p class="sub">Events and to-dos together, written in plain English, kept entirely on your devices.
+    No accounts. No feeds. No noise.</p>
+  <div class="cta">
+    <a class="btn-ink" href="https://apps.apple.com/app/id6786812723">Get Next for Mac &amp; iPhone</a>
+    <a class="quiet-link" href="#type">Watch it read your writing ↓</a>
+  </div>
+
+  <!-- the one loud moment -->
+  <div class="ledger" id="type">
+    <div class="ledger-head"><span class="lbl">Quick add</span><span class="lbl" style="color:var(--acc-ink)">Understands as you type</span></div>
+    <div class="ledger-line"><span id="typed">lunch with Sam 1pm friday #work</span><span class="caret"></span></div>
+    <div class="ledger-parse">
+      <span class="chip c-when" id="chip-when">📅 Friday, Jul 17</span>
+      <span class="chip c-time" id="chip-time">🕐 1:00 – 2:00 PM</span>
+      <span class="chip c-list" id="chip-list"># Work calendar</span>
+    </div>
+    <div class="ledger-foot">Dates, times, durations, repeats, lists — <b>one line becomes a real event</b>,
+      on the calendars you already use.</div>
   </div>
 </header>
 
-<a id="top"></a>
 <main>
-  <!-- ── Hero ─────────────────────────────────────── -->
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">Calendar + Tasks for Mac &amp; iPhone</span>
-      <h1>Your whole day,<br><span class="g">in one calm place.</span></h1>
-      <p class="sub">Next is a fast, private calendar and to-do app for Mac and iPhone. Type plans in plain
-        English, see events and tasks together, and keep all your data on your device.</p>
-      <div class="cta">
-        <a class="as-badge" href="https://apps.apple.com/app/id6786812723">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.93c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.74-.77-2.86-.75-1.47.02-2.83.85-3.58 2.17-1.53 2.65-.39 6.57 1.1 8.72.73 1.05 1.6 2.23 2.74 2.19 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.4 1.2-2.46-.03-.01-2.3-.88-2.32-3.48zM14.2 6.18c.6-.73 1.01-1.74.9-2.75-.87.04-1.93.58-2.56 1.31-.56.64-1.05 1.67-.92 2.65.97.08 1.97-.49 2.58-1.21z"/></svg>
-          <span><span class="l1">Download on the</span><span class="l2">Mac App Store</span></span>
-        </a>
-        <a class="as-badge" href="https://apps.apple.com/app/id6786812723">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.93c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.74-.77-2.86-.75-1.47.02-2.83.85-3.58 2.17-1.53 2.65-.39 6.57 1.1 8.72.73 1.05 1.6 2.23 2.74 2.19 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.4 1.2-2.46-.03-.01-2.3-.88-2.32-3.48zM14.2 6.18c.6-.73 1.01-1.74.9-2.75-.87.04-1.93.58-2.56 1.31-.56.64-1.05 1.67-.92 2.65.97.08 1.97-.49 2.58-1.21z"/></svg>
-          <span><span class="l1">iPhone · Download on the</span><span class="l2">App Store</span></span>
-        </a>
-      </div>
-      <div class="cta" style="margin-top:0">
-        <a class="btn btn-ghost" href="#features">See what it does</a>
-      </div>
-      <p class="trust">No accounts · No tracking · No servers — <b>your data never leaves your devices</b></p>
+  <!-- chapter: the parser, proven -->
+  <section class="chapter wrap">
+    <div class="ch-rule"><span class="lbl">It reads what you write</span></div>
+    <h2>No forms. No pickers. <em>No fuss.</em></h2>
+    <p class="lede">The quick-add bar previews exactly what it will create while you're still typing —
+      the date, the time, and the calendar it belongs on. Capture the plan and get back to your day.</p>
+    <div class="shot"><img src="assets/shots/5-quickadd-light.png" width="1760" height="1100"
+      alt="Next's quick-add preview parsing a natural-language event as it's typed"></div>
+  </section>
 
-      <div class="hero-shot">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="assets/shots/1-week-dark.png">
-          <img class="frame" src="assets/shots/1-week-light.png" width="1760" height="1100"
-               alt="Next's week view showing events laid out across a time grid">
-        </picture>
-      </div>
+  <!-- chapter: the calendar -->
+  <section class="chapter wrap">
+    <div class="ch-rule"><span class="lbl">One calm place</span></div>
+    <h2>A week you can actually <em>read.</em></h2>
+    <p class="lede">Events and tasks share one honest grid, drawn in your real calendar colors —
+      in light or dark, on Mac and iPhone.</p>
+    <div class="shot">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="assets/shots/1-week-dark.png">
+        <img src="assets/shots/1-week-light.png" width="1760" height="1100"
+             alt="Next's week view on a clean time grid">
+      </picture>
+    </div>
+    <div class="notes">
+      <div class="note"><span class="lbl">Drag</span><h3>Reschedule by hand</h3>
+        <p>Pick an event up and drop it where it belongs — day to day, snapped to the quarter hour.</p></div>
+      <div class="note"><span class="lbl">Pinch</span><h3>Zoom the hours</h3>
+        <p>Stretch the morning or compress the afternoon; the week always fills the screen.</p></div>
+      <div class="note"><span class="lbl">Check</span><h3>Tasks live here too</h3>
+        <p>To-dos sit beside events with priorities, snooze, and repeats — complete them in place.</p></div>
     </div>
   </section>
 
-  <!-- ── Feature cards ────────────────────────────── -->
-  <section id="features">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Everything you track, finally together</h2>
-        <p>Events and to-dos in one place — quick to add, easy to read, and entirely yours.</p>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div>
-          <h3>Type it naturally</h3>
-          <p>Just write what's on your mind. <code>Lunch with Sam 1pm Friday #Work</code> becomes a real
-            event — dates, times, durations, lists and recurrence, all understood as you type.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 4.4-3.1 7.9-8 9-4.9-1.1-8-4.6-8-9V7z"/></svg></div>
-          <h3>Private by design</h3>
-          <p>Next works directly with the built-in Calendar and Reminders on your Mac and iPhone. No account
-            to create, no servers, no analytics — nothing is ever sent to us.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
-          <h3>Every view you need</h3>
-          <p>Switch between Week, Month, Agenda, and a dedicated Tasks board — each one drawn in your real
-            calendar colors, in light or dark mode.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-          <h3>Tasks that keep up</h3>
-          <p>Give to-dos a priority and due date, snooze them with a click, and set them to repeat.
-            Group your list by date, list, or priority.</p>
-        </div>
-      </div>
+  <!-- chapter: iPhone -->
+  <section class="chapter wrap">
+    <div class="ch-rule"><span class="lbl">Take it with you</span></div>
+    <h2>The same quiet, <em>in your pocket.</em></h2>
+    <p class="lede">Next for iPhone speaks the same plain English and works with the same Calendar and
+      Reminders — your Mac and iPhone stay in step with no extra setup.</p>
+    <div class="phones">
+      <img src="assets/shots-ios/agenda-light.png" width="430" height="932"
+           alt="Next on iPhone — agenda in light mode">
+      <img src="assets/shots-ios/agenda-dark.png" width="430" height="932" loading="lazy"
+           alt="Next on iPhone — agenda in dark mode">
     </div>
   </section>
 
-  <!-- ── Feature rows ─────────────────────────────── -->
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="rows">
-
-        <div class="row">
-          <div class="row-text">
-            <h3>A calendar that moves at your pace</h3>
-            <p>Drag an event to reschedule, pinch to zoom the day in or out, and let overlapping meetings
-              split into clean side-by-side columns. The week always fills the screen — no dead space.</p>
-          </div>
-          <div class="row-img">
-            <img class="frame" src="assets/shots/1-week-light.png" width="1760" height="1100"
-                 alt="Week view with events arranged on a time grid">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="row-text">
-            <h3>Add anything in seconds</h3>
-            <p>The quick-add bar previews exactly what it will create as you type — the date, time, list,
-              and a calendar to pick from — so you can capture a plan and move on.</p>
-          </div>
-          <div class="row-img">
-            <img class="frame" src="assets/shots/5-quickadd-light.png" width="1760" height="1100"
-                 alt="Quick-add preview parsing a natural-language event">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="row-text">
-            <h3>Your to-dos, organized</h3>
-            <p>A focused Tasks board groups everything by date, list, or priority — with overdue, today,
-              tomorrow and upcoming always clear at a glance, and completed work one toggle away.</p>
-          </div>
-          <div class="row-img">
-            <img class="frame" src="assets/shots/4-tasks-light.png" width="1760" height="1100"
-                 alt="Tasks board grouped by date with priority tags">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="row-text">
-            <h3>See the big picture</h3>
-            <p>Zoom out to the Month for the shape of your weeks, or scroll the Agenda for a clean,
-              chronological list of what's coming — events and tasks side by side.</p>
-          </div>
-          <div class="row-img">
-            <img class="frame" src="assets/shots/2-month-light.png" width="1760" height="1100"
-                 alt="Month view with event dots and bars across the grid">
-          </div>
-        </div>
-
-      </div>
+  <!-- privacy, as pure typography -->
+  <section class="privacy wrap">
+    <span class="lbl">Private by design</span>
+    <p class="big">Next has no servers and no accounts. Your calendar is read and written on your device,
+      through Apple's own frameworks — <em>nothing is ever sent to us.</em></p>
+    <div class="tenets">
+      <span class="tenet">No accounts</span><span class="tenet">No tracking</span>
+      <span class="tenet">No servers</span><span class="tenet">Works offline</span>
     </div>
+    <p class="more"><a href="privacy.html">Read the full privacy policy →</a></p>
   </section>
 
-  <!-- ── iPhone section ───────────────────────────── -->
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Take it with you</h2>
-        <p>Next for iPhone is the same calm calendar in your pocket — swipe between views, pull to
-          refresh, and add plans in the same plain English. It works with the same Calendar and
-          Reminders, so your Mac and iPhone stay in step through iCloud with no extra setup.</p>
-      </div>
-      <div class="phones">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="assets/shots-ios/agenda-dark.png">
-          <img src="assets/shots-ios/agenda-light.png" width="430" height="932" alt="Next for iPhone — agenda of events and tasks">
-        </picture>
-        <img src="assets/shots-ios/threeday-light.png" width="430" height="932" loading="lazy" alt="Next for iPhone — 3-day time grid">
-        <img src="assets/shots-ios/add-light.png" width="430" height="932" loading="lazy" alt="Next for iPhone — natural-language quick add">
-        <img src="assets/shots-ios/tasks-light.png" width="430" height="932" loading="lazy" alt="Next for iPhone — tasks grouped by date">
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Dark mode band ───────────────────────────── -->
-  <section class="band">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Looks great, day or night</h2>
-        <p>Light, dark, or follow your system automatically. Either way, your calendar and list colors
-          come straight from your device.</p>
-      </div>
-      <img class="frame" src="assets/shots/1-week-dark.png" width="1760" height="1100"
-           alt="Next's week view in dark mode">
-    </div>
-  </section>
-
-  <!-- ── Privacy callout ──────────────────────────── -->
-  <section class="privacy-cta">
-    <div class="wrap">
-      <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 4.4-3.1 7.9-8 9-4.9-1.1-8-4.6-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <h2>Your calendar stays yours</h2>
-      <p class="sub">Next has no servers and no account system. It reads and writes your events and reminders
-        locally through Apple's EventKit — the only thing it ever sends over the network is the location text
-        you type, to Apple Maps, for address suggestions.</p>
-      <p style="margin-top:18px"><a href="privacy.html">Read the full privacy policy →</a></p>
-    </div>
-  </section>
-
-  <!-- ── Final CTA ────────────────────────────────── -->
-  <section class="final band">
-    <div class="wrap">
-      <img class="mark-img mark-lg" src="assets/icon.png" alt="Next app icon">
-      <h2>Bring your day together</h2>
-      <p class="sub">Next is a one-time purchase on the App Store — for Mac and iPhone. No subscription, no catch.</p>
-      <div class="cta">
-        <a class="as-badge" href="https://apps.apple.com/app/id6786812723">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.93c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.74-.77-2.86-.75-1.47.02-2.83.85-3.58 2.17-1.53 2.65-.39 6.57 1.1 8.72.73 1.05 1.6 2.23 2.74 2.19 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.4 1.2-2.46-.03-.01-2.3-.88-2.32-3.48zM14.2 6.18c.6-.73 1.01-1.74.9-2.75-.87.04-1.93.58-2.56 1.31-.56.64-1.05 1.67-.92 2.65.97.08 1.97-.49 2.58-1.21z"/></svg>
-          <span><span class="l1">Download on the</span><span class="l2">Mac App Store</span></span>
-        </a>
-        <a class="as-badge" href="https://apps.apple.com/app/id6786812723">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.93c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.18-1.72-1.35-.14-2.64.79-3.33.79-.69 0-1.74-.77-2.86-.75-1.47.02-2.83.85-3.58 2.17-1.53 2.65-.39 6.57 1.1 8.72.73 1.05 1.6 2.23 2.74 2.19 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.4 1.2-2.46-.03-.01-2.3-.88-2.32-3.48zM14.2 6.18c.6-.73 1.01-1.74.9-2.75-.87.04-1.93.58-2.56 1.31-.56.64-1.05 1.67-.92 2.65.97.08 1.97-.49 2.58-1.21z"/></svg>
-          <span><span class="l1">iPhone · Download on the</span><span class="l2">App Store</span></span>
-        </a>
-      </div>
+  <!-- closing -->
+  <section class="fin wrap">
+    <span class="lbl">Ready when you are</span>
+    <h2>Bring your day together.</h2>
+    <p class="sub">For Mac and iPhone, on the App Store.</p>
+    <div class="badges">
+      <a class="badge" href="https://apps.apple.com/app/id6786812723"><span class="s">Download on the</span><span class="b">Mac App Store</span></a>
+      <a class="badge" href="https://apps.apple.com/app/id6786812723"><span class="s">Download on the</span><span class="b">App Store · iPhone</span></a>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap foot-in">
-    <span>© 2026 Zachary Visco · Next for Mac &amp; iPhone</span>
-    <nav class="foot-links">
-      <a href="#features">Features</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="support.html">Support</a>
-      <a href="mailto:zviscodev@gmail.com">Contact</a>
-    </nav>
-  </div>
-</footer>
+<footer><div class="wrap foot-in">
+  <span>© 2026 Zachary Visco · Next for Mac &amp; iPhone</span>
+  <nav><a href="#type">Features</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="mailto:zviscodev@gmail.com">Contact</a></nav>
+</div></footer>
 
+<script>
+  // The one orchestrated moment: type the phrase once when visible; chips bloom as their token is "understood."
+  (function () {
+    var el = document.getElementById('typed');
+    var phrase = 'lunch with Sam 1pm friday #work';
+    var chips = [
+      { at: phrase.indexOf('1pm') + 3, id: 'chip-time' },
+      { at: phrase.indexOf('friday') + 6, id: 'chip-when' },
+      { at: phrase.length, id: 'chip-list' },
+    ];
+    function showAll() { el.textContent = phrase; chips.forEach(function (c) { document.getElementById(c.id).classList.add('show'); }); }
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { showAll(); return; }
+    el.textContent = '';
+    var started = false;
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; }) || started) return;
+      started = true; io.disconnect();
+      var i = 0;
+      var tick = function () {
+        i++;
+        el.textContent = phrase.slice(0, i);
+        chips.forEach(function (c) { if (i >= c.at) document.getElementById(c.id).classList.add('show'); });
+        if (i < phrase.length) setTimeout(tick, 36 + Math.random() * 48);
+      };
+      setTimeout(tick, 500);
+    }, { threshold: 0.5 });
+    io.observe(el);
+    setTimeout(function () { if (!started) showAll(); }, 6000);   // fallback if it never scrolls into view
+  })();
+</script>
 </body>
 </html>
