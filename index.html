@@ -3,160 +3,171 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Next — Calendar + Tasks for Mac &amp; iPhone</title>
-<meta name="description" content="Next is a fast, private calendar and to-do app for Mac and iPhone. Add plans in plain English, see everything in one place, and keep all your data on your device.">
+<title>Next — Know what’s next · Calendar + Tasks for Mac &amp; iPhone</title>
+<meta name="description" content="Next is a fast, private calendar and to-do app for Mac and iPhone. Type plans in plain English, see events and tasks on one list, and keep every bit of it on your device.">
 <link rel="icon" href="assets/icon.png">
 
 <!-- Open Graph / social cards -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Next — Calendar + Tasks for Mac &amp; iPhone">
-<meta property="og:description" content="A fast, private calendar and to-do app for Mac and iPhone. Type plans in plain English, see everything in one place, and keep all your data on your device.">
+<meta property="og:title" content="Next — Know what’s next">
+<meta property="og:description" content="A fast, private calendar and to-do app for Mac and iPhone. Events and to-dos on one list, typed in plain English — and always the answer to “what’s next?”">
 <meta property="og:image" content="assets/shots/1-week-light.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
-  /* ── Quiet Hours × Type It ──
-     Paper-calm editorial serif everywhere; the typing quick-add is the page's one loud moment. */
+  /* ── Know what's next ──
+     Swiss-poster type-first: ink on cool paper, one cobalt-indigo accent, the seven
+     hairlines of a week grid behind the hero. The rotating answer is the loud moment;
+     the typing parse is the proof; the dark privacy band is the closer. */
   :root {
     color-scheme: light dark;
-    --paper: #f4f3f7; --card: #fdfdfe; --ink: #23222a; --ink-2: #5c5966; --ink-3: #8a8794;
-    --line: #e3e1ea; --line-2: #d8d5e0;
-    --acc: #5b6cff; --acc-soft: #e8ebff; --acc-ink: #3f49b8;
-    --clay: #c96f5a; --green-soft: #e5f4ec; --green-ink: #22754e;
-    --amber-soft: #f6ebe2; --amber-ink: #a05a2c;
-    --shadow: 0 24px 60px rgba(35,30,70,.12);
+    --paper: #F1F2EE; --card: #FBFBF9; --ink: #14161A; --ink-2: #565B63; --ink-3: #83878E;
+    --line: #DDDFD8; --line-2: #CFD1CA;
+    --acc: #3D46E8; --acc-bright: #3D46E8; --acc-soft: #E7E9FD;
+    --vault: #0C0E12; --vault-ink: #E7E4DC; --vault-mut: #8D8B84; --vault-line: #24262C;
+    --c-blue: #2F6FE4; --c-violet: #7A5AF0; --c-green: #2E9E63;
+    --shadow: 0 24px 60px rgba(20, 22, 40, .14);
   }
   @media (prefers-color-scheme: dark) {
-    :root { --paper: #16151c; --card: #1d1c24; --ink: #eceaf1; --ink-2: #a8a5b3; --ink-3: #7c7987;
-      --line: #2a2833; --line-2: #363341;
-      --acc: #8b9bff; --acc-soft: #262a4d; --acc-ink: #aab4ff;
-      --clay: #d98a76; --green-soft: #1d3a2c; --green-ink: #7fd3a8;
-      --amber-soft: #3d2c1e; --amber-ink: #dfa571;
-      --shadow: 0 24px 60px rgba(0,0,0,.5); }
+    :root { --paper: #101114; --card: #17181C; --ink: #EAEAE5; --ink-2: #A5A8AE; --ink-3: #7C7F86;
+      --line: #26272C; --line-2: #33343A;
+      --acc: #7B86FF; --acc-bright: #8A93FF; --acc-soft: #232647;
+      --shadow: 0 24px 60px rgba(0,0,0,.55); }
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: var(--paper); color: var(--ink);
-    font: 16.5px/1.66 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font: 16.5px/1.62 "Avenir Next", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 26px; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 26px; }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; height: auto; display: block; }
+  h1, h2, h3 { text-wrap: balance; }
 
-  /* small-caps mono labels — the page's structural voice */
+  /* mono labels — the structural voice */
   .lbl { font: 600 11.5px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .17em;
     text-transform: uppercase; color: var(--ink-3); }
 
   /* ── nav ── */
   nav.top { border-bottom: 1px solid var(--line); }
-  .top-in { display: flex; align-items: baseline; justify-content: space-between; padding-top: 22px; padding-bottom: 22px; }
-  .wordmark { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-size: 24px; font-weight: 600;
-    letter-spacing: -.01em; margin-right: 18px; }
+  .top-in { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; padding-bottom: 20px; }
+  .wordmark { font-weight: 700; font-size: 22px; letter-spacing: -.02em; }
   .wordmark i { font-style: normal; color: var(--acc); }
-  .top-links { display: flex; gap: 26px; align-items: baseline; font-size: 14px; color: var(--ink-2); }
+  .top-links { display: flex; gap: 26px; align-items: center; font-size: 14px; color: var(--ink-2); }
   .top-links a:hover { color: var(--ink); }
-  .top-links .dl { color: var(--ink); border-bottom: 1.5px solid var(--ink); padding-bottom: 1px; }
+  .top-links .dl { color: var(--paper); background: var(--ink); border-radius: 999px; padding: 8px 18px; font-weight: 600; }
+  .top-links .dl:hover { opacity: .9; color: var(--paper); }
 
-  /* ── hero ── */
-  .hero { padding-top: 92px; text-align: center; }
-  .hero h1 { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
-    font-size: clamp(38px, 6vw, 64px); line-height: 1.06; letter-spacing: -.015em; margin: 22px auto 0;
-    max-width: 17ch; text-wrap: balance; }
-  .hero h1 em { font-style: italic; }
-  .hero .sub { color: var(--ink-2); max-width: 52ch; margin: 22px auto 0; font-size: 17.5px; }
-  .hero .cta { display: flex; gap: 22px; justify-content: center; align-items: center; margin: 32px 0 0;
-    flex-wrap: wrap; }
-  .btn-ink { display: inline-block; background: var(--ink); color: var(--paper); border-radius: 4px;
-    padding: 13px 24px; font-size: 15px; font-weight: 600; }
-  .btn-ink:hover { opacity: .92; }
+  /* ── hero: the question ── */
+  .hero { position: relative; text-align: left; overflow: hidden; }
+  .hero .grid7 { position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
+    background-size: calc(100% / 7) 100%; opacity: .55; }
+  .hero-in { position: relative; padding-top: 96px; padding-bottom: 84px; }
+  .hero h1 { font-weight: 800; font-size: clamp(52px, 9.5vw, 104px); line-height: .98;
+    letter-spacing: -.035em; margin: 22px 0 0; }
+  .answer { font-weight: 600; font-size: clamp(21px, 3.4vw, 32px); letter-spacing: -.01em;
+    color: var(--acc); margin-top: 18px; min-height: 1.45em; transition: opacity .35s ease; }
+  .answer.fade { opacity: 0; }
+  .hero .sub { color: var(--ink-2); max-width: 52ch; margin: 24px 0 0; font-size: 17.5px; }
+  .hero .cta { display: flex; gap: 22px; align-items: center; margin-top: 34px; flex-wrap: wrap; }
+  .btn-acc { display: inline-block; background: var(--acc); color: #fff; border-radius: 999px;
+    padding: 14px 28px; font-size: 15.5px; font-weight: 700; }
+  .btn-acc:hover { opacity: .92; }
   .quiet-link { font-size: 15px; color: var(--ink); border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
   .quiet-link:hover { border-color: var(--ink); }
+  .hero .note { margin-top: 16px; font: 500 11.5px/1 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
 
-  /* ── the one loud moment: the ledger ── */
-  .ledger { max-width: 660px; margin: 64px auto 0; background: var(--card); border: 1px solid var(--line);
-    border-radius: 12px; box-shadow: var(--shadow); text-align: left; overflow: hidden; }
-  .ledger-head { display: flex; justify-content: space-between; align-items: center;
+  /* ── the proof: it reads what you write ── */
+  .parse { padding-top: 92px; }
+  .parse-card { max-width: 680px; margin: 44px auto 0; background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .parse-head { display: flex; justify-content: space-between; align-items: center;
     padding: 12px 20px; border-bottom: 1px solid var(--line); }
-  .ledger-line { padding: 20px 20px 6px; font: 500 18px/1.5 ui-monospace, "SF Mono", Menlo, monospace;
-    min-height: 56px; }
-  .caret { display: inline-block; width: 9px; height: 20px; background: var(--acc); vertical-align: -3px;
+  .parse-line { padding: 22px 20px 6px; font: 500 19px/1.5 ui-monospace, "SF Mono", Menlo, monospace;
+    min-height: 60px; }
+  .caret { display: inline-block; width: 9px; height: 21px; background: var(--acc); vertical-align: -3px;
     margin-left: 2px; }
   @media (prefers-reduced-motion: no-preference) { .caret { animation: blink 1s steps(1) infinite; } }
   @keyframes blink { 50% { opacity: 0; } }
-  .ledger-parse { display: flex; gap: 8px; flex-wrap: wrap; padding: 8px 20px 20px; }
-  .chip { font: 600 12.5px/1 ui-monospace, "SF Mono", Menlo, monospace; padding: 8px 12px; border-radius: 6px;
-    opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .35s ease; }
+  .parse-chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 8px 20px 20px; }
+  .chip { font: 600 12.5px/1 ui-monospace, "SF Mono", Menlo, monospace; padding: 8px 13px; border-radius: 999px;
+    color: #fff; opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .35s ease; }
   .chip.show { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .chip { opacity: 1; transform: none; } }
-  .chip.c-when { background: var(--acc-soft); color: var(--acc-ink); }
-  .chip.c-time { background: var(--green-soft); color: var(--green-ink); }
-  .chip.c-list { background: var(--amber-soft); color: var(--amber-ink); }
-  .ledger-foot { border-top: 1px dashed var(--line-2); padding: 12px 20px; color: var(--ink-3);
-    font-size: 13px; }
-  .ledger-foot b { color: var(--ink-2); font-weight: 600; }
+  .chip.c-time { background: var(--c-blue); }
+  .chip.c-rep  { background: var(--c-violet); }
+  .chip.c-cal  { background: var(--c-green); }
+  .parse-foot { border-top: 1px dashed var(--line-2); padding: 12px 20px; color: var(--ink-3); font-size: 13px; }
+  .parse-foot b { color: var(--ink-2); font-weight: 600; }
 
   /* ── chapters ── */
   .chapter { padding-top: 96px; }
-  .ch-rule { display: flex; align-items: center; gap: 16px; margin-bottom: 34px; }
-  .ch-rule::before, .ch-rule::after { content: ""; height: 1px; background: var(--line); flex: 1; }
-  .chapter h2 { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
-    font-size: clamp(27px, 3.8vw, 38px); letter-spacing: -.012em; text-align: center; margin: 0 0 14px;
-    text-wrap: balance; }
-  .chapter h2 em { font-style: italic; }
-  .chapter .lede { color: var(--ink-2); text-align: center; max-width: 56ch; margin: 0 auto; }
-  .shot { margin: 44px auto 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+  .ch-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .ch-num { font: 600 11.5px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .17em; color: var(--acc); }
+  .chapter h2 { font-weight: 800; font-size: clamp(30px, 4.6vw, 46px); letter-spacing: -.025em; margin: 12px 0 12px; }
+  .chapter .lede { color: var(--ink-2); max-width: 58ch; margin: 0; }
+  .shot { margin: 40px auto 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
     box-shadow: var(--shadow); background: var(--card); }
   .shot img { width: 100%; }
 
-  /* quiet three-notes row (not cards) */
-  .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin: 52px 0 0; }
-  .note h3 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-weight: 600; font-size: 18.5px;
-    margin: 10px 0 6px; }
+  .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin: 48px 0 0; }
+  .note h3 { font-weight: 700; font-size: 17.5px; letter-spacing: -.01em; margin: 10px 0 6px; }
   .note p { margin: 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.6; }
-  .note .lbl { color: var(--acc-ink); }
+  .note .lbl { color: var(--acc); }
 
   /* phones */
-  .phones { display: flex; gap: 26px; justify-content: center; margin-top: 46px; flex-wrap: wrap; }
+  .phones { display: flex; gap: 26px; justify-content: center; margin-top: 44px; flex-wrap: wrap; }
   .phones img { width: 250px; border: 1px solid var(--line); border-radius: 30px; box-shadow: var(--shadow); }
 
-  /* privacy statement — pure typography */
-  .privacy { text-align: center; padding-top: 110px; }
-  .privacy .big { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
-    font-size: clamp(24px, 3.6vw, 34px); line-height: 1.35; max-width: 30ch; margin: 26px auto 0;
-    text-wrap: balance; }
-  .privacy .big em { font-style: italic; border-bottom: 2px solid var(--clay); }
-  .privacy .tenets { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
-  .tenet { font: 600 12px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 999px;
-    padding: 9px 16px; }
-  .privacy .more { margin-top: 26px; font-size: 14.5px; }
-  .privacy .more a { color: var(--acc-ink); border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
+  /* ── the closer: privacy, vault-dark ── */
+  .vault { margin-top: 110px; background: var(--vault); color: var(--vault-ink); }
+  .vault-in { padding-top: 92px; padding-bottom: 92px; text-align: left; }
+  .vault .lbl { color: var(--vault-mut); }
+  .vault h2 { font-weight: 800; font-size: clamp(30px, 5vw, 52px); letter-spacing: -.025em;
+    line-height: 1.12; margin: 18px 0 0; max-width: 22ch; }
+  .vault h2 em { font-style: normal; color: var(--acc-bright); }
+  .vault .sub { color: var(--vault-mut); max-width: 52ch; margin: 20px 0 0; font-size: 16px; }
+  .zeros { display: flex; gap: 44px; margin-top: 40px; flex-wrap: wrap; }
+  .zero b { display: block; font: 500 30px/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--acc-bright); }
+  .zero span { font: 600 10.5px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--vault-mut); display: block; margin-top: 8px; }
+  .vault .more { margin-top: 36px; font-size: 14.5px; }
+  .vault .more a { color: var(--vault-ink); border-bottom: 1px solid var(--vault-line); padding-bottom: 2px; }
+  .vault .more a:hover { border-color: var(--vault-ink); }
 
-  /* closing CTA */
+  /* ── platforms ── */
+  .platforms { padding-top: 96px; }
+  .plat-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 26px; align-items: center; margin-top: 40px; }
+  .plat-grid .shot { margin: 0; }
+  .plat-grid .phones { margin: 0; justify-content: center; }
+  .plat-grid .phones img { width: 210px; }
+
+  /* ── closing CTA ── */
   .fin { text-align: center; padding-top: 110px; padding-bottom: 96px; }
-  .fin h2 { font-family: "Iowan Old Style", Palatino, Charter, Georgia, serif; font-weight: 500;
-    font-size: clamp(30px, 4.4vw, 44px); margin: 18px 0 0; letter-spacing: -.012em; }
+  .fin h2 { font-weight: 800; font-size: clamp(34px, 5.4vw, 56px); letter-spacing: -.03em; margin: 18px 0 0; }
   .fin .sub { color: var(--ink-2); margin: 16px auto 0; max-width: 46ch; }
   .badges { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
   .badge { display: inline-flex; flex-direction: column; align-items: flex-start; border: 1.5px solid var(--ink);
-    border-radius: 10px; padding: 10px 20px; min-width: 200px; text-align: left; }
+    border-radius: 12px; padding: 10px 20px; min-width: 200px; text-align: left; }
   .badge:hover { background: var(--card); }
   .badge .s { font-size: 11px; color: var(--ink-2); }
-  .badge .b { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 18px; font-weight: 600; }
+  .badge .b { font-size: 17.5px; font-weight: 700; letter-spacing: -.01em; }
 
   footer { border-top: 1px solid var(--line); padding: 30px 0 56px; color: var(--ink-3); font-size: 13.5px; }
   .foot-in { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
   .foot-in nav { display: flex; gap: 20px; }
   .foot-in a:hover { color: var(--ink); }
 
-  @media (max-width: 720px) {
+  @media (max-width: 780px) {
     .notes { grid-template-columns: 1fr; gap: 26px; }
-    .hero { padding-top: 64px; }
-    .top-links { gap: 16px; }
+    .plat-grid { grid-template-columns: 1fr; }
+    .hero-in { padding-top: 64px; padding-bottom: 64px; }
+    .chapter, .parse { padding-top: 72px; }
+    .top-links { gap: 14px; }
     .sm-hide { display: none; }
-    .chapter { padding-top: 76px; }
-    .ledger-head .lbl { white-space: nowrap; letter-spacing: .1em; font-size: 10.5px; }
   }
 </style>
 </head>
@@ -165,99 +176,113 @@
 <nav class="top"><div class="wrap top-in">
   <a class="wordmark" href="#">Next<i>.</i></a>
   <div class="top-links">
-    <a href="#type">Features</a><a class="sm-hide" href="help.html">Help</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a>
+    <a href="#parse">Features</a><a class="sm-hide" href="help.html">Help</a><a href="privacy.html">Privacy</a><a class="sm-hide" href="support.html">Support</a>
     <a class="dl" href="https://apps.apple.com/app/id6786812723">Download</a>
   </div>
 </div></nav>
 
-<header class="hero wrap">
-  <span class="lbl">Calendar + tasks · Mac &amp; iPhone</span>
-  <h1>Your whole day, in <em>one calm place.</em></h1>
-  <p class="sub">Events and to-dos together, written in plain English, kept entirely on your devices.
-    No accounts. No feeds. No noise.</p>
-  <div class="cta">
-    <a class="btn-ink" href="https://apps.apple.com/app/id6786812723">Get Next for Mac &amp; iPhone</a>
-    <a class="quiet-link" href="#type">Watch it read your writing ↓</a>
-  </div>
-
-  <!-- the one loud moment -->
-  <div class="ledger" id="type">
-    <div class="ledger-head"><span class="lbl">Quick add</span><span class="lbl" style="color:var(--acc-ink)">Understands as you type</span></div>
-    <div class="ledger-line"><span id="typed">lunch with Sam 1pm friday #work</span><span class="caret"></span></div>
-    <div class="ledger-parse">
-      <span class="chip c-when" id="chip-when">📅 Friday, Jul 17</span>
-      <span class="chip c-time" id="chip-time">🕐 1:00 – 2:00 PM</span>
-      <span class="chip c-list" id="chip-list"># Work calendar</span>
+<!-- ── hero: own the name ── -->
+<header class="hero">
+  <div class="grid7"></div>
+  <div class="wrap hero-in">
+    <span class="lbl">Calendar + tasks · Mac &amp; iPhone</span>
+    <h1>What’s next?</h1>
+    <p class="answer" id="answer">Coffee with Dana, 9:00.</p>
+    <p class="sub">Next always has the answer — a fast, private calendar for Mac and iPhone with your
+      events and to-dos on one list, typed in plain English.</p>
+    <div class="cta">
+      <a class="btn-acc" href="https://apps.apple.com/app/id6786812723">Download for Mac &amp; iPhone</a>
+      <a class="quiet-link" href="#parse">See it read your writing ↓</a>
     </div>
-    <div class="ledger-foot">Dates, times, durations, repeats, lists — <b>one line becomes a real event</b>,
-      on the calendars you already use.</div>
+    <p class="note">One download · Both platforms · No account</p>
   </div>
 </header>
 
 <main>
-  <!-- chapter: the parser, proven -->
-  <section class="chapter wrap">
-    <div class="ch-rule"><span class="lbl">It reads what you write</span></div>
-    <h2>No forms. No pickers. <em>No fuss.</em></h2>
-    <p class="lede">The quick-add bar previews exactly what it will create while you're still typing —
-      the date, the time, and the calendar it belongs on. Capture the plan and get back to your day.</p>
-    <div class="shot"><img src="assets/shots/5-quickadd-light.png" width="1760" height="1100"
-      alt="Next's quick-add preview parsing a natural-language event as it's typed"></div>
+  <!-- ── the proof: the live parse ── -->
+  <section class="parse wrap" id="parse">
+    <div class="ch-head"><span class="ch-num">01 · SAY THE WORD</span></div>
+    <h2 style="font-weight:800; font-size:clamp(30px,4.6vw,46px); letter-spacing:-.025em; margin:12px 0 12px;">Type it. It’s scheduled.</h2>
+    <p class="lede" style="color:var(--ink-2); max-width:58ch; margin:0;">Next understands plans the way you say them —
+      dates, times, repeats, lists, and locations — and files each one exactly where it belongs.
+      A live preview shows what you’re about to add before you press return.</p>
+
+    <div class="parse-card">
+      <div class="parse-head"><span class="lbl">Quick add</span><span class="lbl" style="color:var(--acc)">Understands as you type</span></div>
+      <div class="parse-line"><span id="typed">Dinner with Alex every Friday at 7</span><span class="caret"></span></div>
+      <div class="parse-chips">
+        <span class="chip c-time" id="chip-time">Fri · 7:00 PM</span>
+        <span class="chip c-rep" id="chip-rep">↻ Repeats weekly</span>
+        <span class="chip c-cal" id="chip-cal">● Personal</span>
+      </div>
+      <div class="parse-foot">One line becomes a <b>real event with a repeat rule</b> — on the calendars
+        you already use.</div>
+    </div>
   </section>
 
-  <!-- chapter: the calendar -->
+  <!-- ── one list, every view ── -->
   <section class="chapter wrap">
-    <div class="ch-rule"><span class="lbl">One calm place</span></div>
-    <h2>A week you can actually <em>read.</em></h2>
-    <p class="lede">Events and tasks share one honest grid, drawn in your real calendar colors —
-      in light or dark, on Mac and iPhone.</p>
+    <div class="ch-head"><span class="ch-num">02 · EVERYTHING, IN ORDER</span></div>
+    <h2>The shape of your week.</h2>
+    <p class="lede">Meetings and errands don’t live in separate apps in your head — so they don’t here,
+      either. Events and to-dos share one honest grid, drawn in your real calendar colors, in light or dark.</p>
     <div class="shot">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="assets/shots/1-week-dark.png">
         <img src="assets/shots/1-week-light.png" width="1760" height="1100"
-             alt="Next's week view on a clean time grid">
+             alt="Next's week view — events and tasks on a clean time grid">
       </picture>
     </div>
     <div class="notes">
-      <div class="note"><span class="lbl">Drag</span><h3>Reschedule by hand</h3>
-        <p>Pick an event up and drop it where it belongs — day to day, snapped to the quarter hour.</p></div>
-      <div class="note"><span class="lbl">Pinch</span><h3>Zoom the hours</h3>
-        <p>Stretch the morning or compress the afternoon; the week always fills the screen.</p></div>
-      <div class="note"><span class="lbl">Check</span><h3>Tasks live here too</h3>
-        <p>To-dos sit beside events with priorities, snooze, and repeats — complete them in place.</p></div>
+      <div class="note"><span class="lbl">One list</span><h3>Events + to-dos together</h3>
+        <p>The agenda holds your whole day — priorities, overdue, snooze, and repeats, right beside your meetings.</p></div>
+      <div class="note"><span class="lbl">Every view</span><h3>Agenda, week, month, tasks</h3>
+        <p>Zoom out without losing the plot. Drag to reschedule, pinch to stretch the hours, tap a day to dive in.</p></div>
+      <div class="note"><span class="lbl">Your accounts</span><h3>Works with what you have</h3>
+        <p>Reads and writes your built-in Calendar and Reminders — iCloud, Google, and Outlook show up instantly.</p></div>
     </div>
   </section>
 
-  <!-- chapter: iPhone -->
-  <section class="chapter wrap">
-    <div class="ch-rule"><span class="lbl">Take it with you</span></div>
-    <h2>The same quiet, <em>in your pocket.</em></h2>
-    <p class="lede">Next for iPhone speaks the same plain English and works with the same Calendar and
-      Reminders — your Mac and iPhone stay in step with no extra setup.</p>
-    <div class="phones">
-      <img src="assets/shots-ios/agenda-light.png" width="430" height="932"
-           alt="Next on iPhone — agenda in light mode">
-      <img src="assets/shots-ios/agenda-dark.png" width="430" height="932" loading="lazy"
-           alt="Next on iPhone — agenda in dark mode">
+  <!-- ── the closer: privacy ── -->
+  <section class="vault">
+    <div class="wrap vault-in">
+      <span class="lbl">03 · Private by design</span>
+      <h2>Your day is <em>none of our business.</em></h2>
+      <p class="sub">Next has no servers and no accounts. Your calendar is read and written on your device,
+        through Apple’s own frameworks — there is nowhere to send your data, and we never try.</p>
+      <div class="zeros">
+        <div class="zero"><b>0</b><span>accounts</span></div>
+        <div class="zero"><b>0</b><span>servers</span></div>
+        <div class="zero"><b>0</b><span>trackers</span></div>
+      </div>
+      <p class="more"><a href="privacy.html">Read the full privacy policy →</a></p>
     </div>
   </section>
 
-  <!-- privacy, as pure typography -->
-  <section class="privacy wrap">
-    <span class="lbl">Private by design</span>
-    <p class="big">Next has no servers and no accounts. Your calendar is read and written on your device,
-      through Apple's own frameworks — <em>nothing is ever sent to us.</em></p>
-    <div class="tenets">
-      <span class="tenet">No accounts</span><span class="tenet">No tracking</span>
-      <span class="tenet">No servers</span><span class="tenet">Works offline</span>
+  <!-- ── platforms ── -->
+  <section class="platforms wrap">
+    <div class="ch-head"><span class="ch-num">04 · MAC + IPHONE</span></div>
+    <h2 style="font-weight:800; font-size:clamp(30px,4.6vw,46px); letter-spacing:-.025em; margin:12px 0 12px;">One download. Both machines.</h2>
+    <p class="lede" style="color:var(--ink-2); max-width:58ch; margin:0;">The same plain English, the same
+      one-list day, on your desk and in your pocket — kept in step through the accounts you already use,
+      with no extra setup.</p>
+    <div class="plat-grid">
+      <div class="shot"><img src="assets/shots/3-agenda-light.png" width="1760" height="1100" loading="lazy"
+        alt="Next on Mac — the agenda view"></div>
+      <div class="phones">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/shots-ios/agenda-dark.png">
+          <img src="assets/shots-ios/agenda-light.png" width="430" height="932" loading="lazy"
+               alt="Next on iPhone — the agenda">
+        </picture>
+      </div>
     </div>
-    <p class="more"><a href="privacy.html">Read the full privacy policy →</a></p>
   </section>
 
-  <!-- closing -->
+  <!-- ── closing ── -->
   <section class="fin wrap">
     <span class="lbl">Ready when you are</span>
-    <h2>Bring your day together.</h2>
+    <h2>Know what’s next.</h2>
     <p class="sub">For Mac and iPhone, on the App Store.</p>
     <div class="badges">
       <a class="badge" href="https://apps.apple.com/app/id6786812723"><span class="s">Download on the</span><span class="b">Mac App Store</span></a>
@@ -268,18 +293,31 @@
 
 <footer><div class="wrap foot-in">
   <span>© 2026 Zachary Visco · Next for Mac &amp; iPhone</span>
-  <nav><a href="#type">Features</a><a href="help.html">Help</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="mailto:zviscodev@gmail.com">Contact</a></nav>
+  <nav><a href="#parse">Features</a><a href="help.html">Help</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="mailto:zviscodev@gmail.com">Contact</a></nav>
 </div></footer>
 
 <script>
-  // The one orchestrated moment: type the phrase once when visible; chips bloom as their token is "understood."
+  // Moment 1 — the hero answer rotates: the question is constant, the answer is always changing.
+  (function () {
+    var el = document.getElementById('answer');
+    var answers = ['Coffee with Dana, 9:00.', 'Ship the review draft.', 'Maya’s recital, 5:30.',
+      'Nothing until 2 — go outside.'];
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i = 0;
+    setInterval(function () {
+      el.classList.add('fade');
+      setTimeout(function () { i = (i + 1) % answers.length; el.textContent = answers[i]; el.classList.remove('fade'); }, 360);
+    }, 3400);
+  })();
+
+  // Moment 2 — the parse, typed once when scrolled into view; chips bloom as their token is understood.
   (function () {
     var el = document.getElementById('typed');
-    var phrase = 'lunch with Sam 1pm friday #work';
+    var phrase = 'Dinner with Alex every Friday at 7';
     var chips = [
-      { at: phrase.indexOf('1pm') + 3, id: 'chip-time' },
-      { at: phrase.indexOf('friday') + 6, id: 'chip-when' },
-      { at: phrase.length, id: 'chip-list' },
+      { at: phrase.indexOf('Friday') + 6, id: 'chip-rep' },
+      { at: phrase.length, id: 'chip-time' },
+      { at: phrase.length, id: 'chip-cal' },
     ];
     function showAll() { el.textContent = phrase; chips.forEach(function (c) { document.getElementById(c.id).classList.add('show'); }); }
     if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { showAll(); return; }
@@ -298,7 +336,7 @@
       setTimeout(tick, 500);
     }, { threshold: 0.5 });
     io.observe(el);
-    setTimeout(function () { if (!started) showAll(); }, 6000);   // fallback if it never scrolls into view
+    setTimeout(function () { if (!started) showAll(); }, 7000);   // fallback if it never scrolls into view
   })();
 </script>
 </body>
